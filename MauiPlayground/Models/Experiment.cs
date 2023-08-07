@@ -9,12 +9,6 @@ public class Experiment
     public string Type { get; set; }
     public string PageUri { get; set; }
 
-    public Experiment()
-    {
-        Id = Guid.NewGuid();
-        Name = "Hi";
-    }
-
     public Experiment(string name, string description, string thumbnail, string type, string pageUri)
     {
         Id = Guid.NewGuid();

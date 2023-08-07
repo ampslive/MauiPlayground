@@ -1,30 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiPlayground.MainPage">
+             xmlns:models="clr-namespace:MauiPlayground.Models"
+             x:Class="MauiPlayground.MainPage"
+             x:DataType="models:Experiment">
 
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+            Padding="15,0">
 
-            <Image
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+                <Image
                 Source="dotnet_bot.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="100"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Start" />
 
-            <Label
-                Text="MAUI Playground"
+                <Label
+                Text="Experiments"
                 SemanticProperties.HeadingLevel="Level1"
+                Padding="0, 30"
                 FontSize="32"
-                HorizontalOptions="Center" />
+                HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+            
 
             <CollectionView ItemsSource="{Binding .}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Label Text="{Binding Name}" />
+                        <StackLayout>
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Description}" />
+                            <Label Text="{Binding Type}" />
+                            <Label Text="{Binding Thumbnail}" />
+                        </StackLayout>
+                        
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

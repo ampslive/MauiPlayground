@@ -21,7 +21,7 @@
                 FontSize="32"
                 HorizontalOptions="Center" />
 
-            <CollectionView ItemsSource="{Binding Experiments}">
+            <CollectionView ItemsSource="{Binding .}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Label Text="{Binding Name}" />

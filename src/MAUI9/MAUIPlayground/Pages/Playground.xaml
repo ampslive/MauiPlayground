@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pageModels="clr-namespace:MAUIPlayground.PageModels"
+             xmlns:models="clr-namespace:MAUIPlayground.Models"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="MAUIPlayground.Pages.Playground"
              x:DataType="pageModels:PlaygroundPageModel"
@@ -23,15 +24,20 @@
 
             <CarouselView 
             ItemsSource="{Binding Items}"
-            BackgroundColor="Gray"
-            HeightRequest="200">
+            HeightRequest="250">
+                <CarouselView.Loop>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="Windows" Value="False"/>
+                        <On Platform="iOS, Android" Value="True" />
+                    </OnPlatform>
+                </CarouselView.Loop>
                 <CarouselView.ItemTemplate>
-                    <DataTemplate x:DataType="pageModels:Item">
-                        <StackLayout>
+                    <DataTemplate x:DataType="models:Item">
+                        <Border Margin="10" Padding="0">
                             <Grid>
                                 <Image 
                                 Source="{Binding Image}" 
-                                HeightRequest="200" 
+                                HeightRequest="250" 
                                 Aspect="AspectFill"                                
                                 HorizontalOptions="Center" 
                                 VerticalOptions="Center" />
@@ -52,7 +58,7 @@
                                     TextColor="White" />
                                 </StackLayout>
                             </Grid>
-                        </StackLayout>
+                        </Border>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
             </CarouselView>
@@ -61,9 +67,9 @@
 
             <CollectionView
             ItemsSource="{Binding Items}"
-            ItemsLayout="Horizontal">
+            ItemsLayout="HorizontalList">
                 <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="pageModels:Item">
+                    <DataTemplate x:DataType="models:Item">
                         <Border Margin="10">
                             <VerticalStackLayout Padding="10">
                                 <Label Text="{Binding Title}" FontSize="24" />
@@ -83,7 +89,7 @@
             ItemsSource="{Binding Items}"
             ItemsLayout="VerticalGrid, 2">
                 <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="pageModels:Item">
+                    <DataTemplate x:DataType="models:Item">
                         <Border Margin="10">
                             <VerticalStackLayout Padding="10">
                                 <Label Text="{Binding Title}" FontSize="24" />

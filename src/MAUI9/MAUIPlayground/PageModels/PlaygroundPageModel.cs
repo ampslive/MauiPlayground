@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using MAUIPlayground.Models;
 
 namespace MAUIPlayground.PageModels;
 
@@ -38,14 +39,15 @@ public partial class PlaygroundPageModel : ObservableObject
                 Title = "Item 3",
                 Description = "Description 3",
                 Image = "Orange"
-            }
+            },
+            new ()
+            {
+                Title = "Item 4",
+                Description = "Description 4",
+                Image = "Blue"
+            },
         };
     }
 }
 
-public class Item
-{
-    public string? Title { get; set; }
-    public string? Description { get; set; }
-    public string? Image { get; set; }
-}
+

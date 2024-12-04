@@ -32,6 +32,12 @@
         ContentTemplate="{DataTemplate pages:Playground}"
         Route="playground" />
 
+    <ShellContent
+    Title="YouTube Player"
+    Icon="{StaticResource IconMeta}"
+    ContentTemplate="{DataTemplate pages:YouTube}"
+    Route="youtube" />
+
     <Shell.FlyoutFooter>
         <Grid Padding="15">
             <sf:SfSegmentedControl x:Name="ThemeSegmentedControl" 

@@ -11,7 +11,7 @@
     </Shell.TitleView>
     <VerticalStackLayout>
         <Border Padding="0">
-            <WebView HeightRequest="300" Source="https://www.youtube.com/embed/QbRBqTPz_g4?rel=0&amp;fs=0&amp;modestbranding=1" />
+            <WebView HeightRequest="300" x:Name="YoutubeWebView" />
         </Border>
         <Border Margin="10">
             <VerticalStackLayout>
